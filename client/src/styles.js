@@ -8,6 +8,7 @@ export default makeStyles(() => ({
         justifyContent: 'center',
         alignItems: 'center',
         boxShadow: 'none',
+        backgroundColor: 'transparent'
     },
     heading: {
         color: '#f06292',
