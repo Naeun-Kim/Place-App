@@ -24,16 +24,21 @@ export default makeStyles((theme) => ({
   toolbar: {
     display: "flex",
     justifyContent: "flex-end",
-    width: "400px",
   },
   profile: {
     display: "flex",
     justifyContent: "space-between",
-    width: "400px",
+
+    "& > div": {
+      display: "flex",
+      alignItems: "center",
+      marginRight: "20px",
+    },
   },
   userName: {
     display: "flex",
     alignItems: "center",
+    marginLeft: "15px",
   },
   brandContainer: {
     display: "flex",
