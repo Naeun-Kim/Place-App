@@ -16,6 +16,7 @@ import Icon from "./icon";
 import useStyles from "./styles";
 import Input from "./Input";
 import { StyledButton } from "../UI/Button";
+import { signin, signup } from "../../actions/auth";
 
 const initialState = {
   firstName: "",
@@ -31,9 +32,23 @@ const Auth = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
+
   const handleShowPassword = () => setShowPassword(!showPassword);
-  const handleChange = () => {};
-  const handleSubmit = () => {};
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (isSignup) {
+      dispatch(signup(form, history));
+    } else {
+      dispatch(signin(form, history));
+    }
+  };
+
   const switchMode = () => {
     setForm(initialState);
     setIsSignup((prevIsSignup) => !prevIsSignup);
